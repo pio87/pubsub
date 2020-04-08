@@ -1,0 +1,32 @@
+{
+  "name": "pubsub",
+  "version": "0.0.1",
+  "description": "Pub-Sub sample project with RabbitMQ usage.",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json",
+    "start": "ts-node-dev --no-deps --ignore-watch node_modules --no-notify --respawn src/index.ts",
+    "build": "rimraf ./dist && tsc --skipLibCheck"
+  },
+  "author": "Piotr Więcaszek <pio.wiecaszek@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/amqplib": "^0.5.13",
+    "@types/hapi__joi": "15.0.4",
+    "@types/jasmine": "^3.5.10",
+    "@types/node": "^13.11.0",
+    "copy": "^0.3.2",
+    "cross-env": "^7.0.2",
+    "jasmine": "^3.5.0",
+    "rimraf": "^3.0.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@hapi/joi": "15.1.1",
+    "amqplib": "^0.5.5",
+    "dotenv": "^8.2.0",
+    "joi-extract-type": "^15.0.2",
+    "winston": "^3.2.1"
+  }
+}

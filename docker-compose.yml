@@ -1,0 +1,28 @@
+version: '3.1'
+
+
+networks:
+  pubsub-network:
+    driver: bridge
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.8.3-management
+    ports:
+      - '15672:15672'
+      - '5672:5672'
+    networks:
+      - pubsub-network
+
+  pubsub:
+    build: .
+    links:
+      - rabbitmq
+    depends_on:
+      - rabbitmq
+    command: npm run start
+    volumes:
+      - .:/home/peter/pubsub
+      - /home/peter/pubsub/node_modules
+    networks:
+      - pubsub-network
