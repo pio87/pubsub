@@ -16,8 +16,6 @@ services:
 
   pubsub:
     build: .
-    links:
-      - rabbitmq
     depends_on:
       - rabbitmq
     command: npm run start
